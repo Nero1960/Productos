@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-const database = new Sequelize(process.env.DATABASE_NAME, process.env.DATABASE_USER, process.env.DATABASE_PASS, {
+const database = new Sequelize('productos', "root", "root", {
     dialect: 'mysql',
     models: [__dirname + '/../models/**/*.ts'],
     logging: false

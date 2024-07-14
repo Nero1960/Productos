@@ -1,6 +1,5 @@
 import { Column , DataType, Table, Model, Default} from "sequelize-typescript"
 
-
 type ProductsType = {
     idProducts: number,
     name: string,
@@ -9,7 +8,7 @@ type ProductsType = {
 }
 
 @Table({
-    tableName: 'productos',
+    tableName: 'producto',
     timestamps: false
 })
 
@@ -36,12 +35,13 @@ class Products extends Model<ProductsType>{
     })
      declare price: number;
 
-    @Default(true)
+    @Default(1)
     @Column({
-        type: DataType.BOOLEAN,
+        type: DataType.TINYINT,
         allowNull: false
     })
-     declare availability: boolean
+     declare availability: number
+     
 
 }
 
