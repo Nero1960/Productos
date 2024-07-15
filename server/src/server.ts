@@ -1,5 +1,6 @@
-import express, {Request, Response } from 'express'
-import colors from 'colors'
+import express  from 'express'
+import swaggerUI from 'swagger-ui-express' 
+import swaggerSpec from './config/swagger';
 import router from './routes';
 import database from './config/database';
 
@@ -27,10 +28,7 @@ server.use(express.json());
 //routes
 server.use('/api/products', router)
 
-server.get('/api',(request, response) => {
-    response.json({msg: 'Hola'})
-
-})
-
+//DOCS
+server.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec) );
 
 export default server;
