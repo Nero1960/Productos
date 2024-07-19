@@ -4,11 +4,8 @@ import Products from '../models/Products.model';
 
 export const getProducts = async (request: Request, response: Response) => {
 
-    const products = await Products.findAll({
-        order: [
-            ['price', 'DESC']
-        ]
-    });
+    const products = await Products.findAll();
+    
 
     return response.status(200).json({ data: products });
 }
@@ -31,6 +28,7 @@ export const createProduct = async (request: Request, response: Response) => {
 
     const products = await Products.create(request.body);
     response.status(201).json({ data: products });
+    console.log(products)
 }
 
 export const updateProduct = async (request: Request, response: Response) => {

@@ -5,6 +5,7 @@ import { addProduct } from "../services/ProductService"
 export async function action({request} : ActionFunctionArgs){
 
   const data = Object.fromEntries(await request.formData())
+  console.log(data)
 
   let error = ''
 
