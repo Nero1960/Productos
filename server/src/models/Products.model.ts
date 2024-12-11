@@ -5,8 +5,6 @@ import { Column, DataType, Table, Model, Default } from "sequelize-typescript"
     timestamps: false
 })
 
-
-
 class Products extends Model {
 
     @Column({

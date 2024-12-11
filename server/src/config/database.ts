@@ -5,6 +5,7 @@ dotenv.config()
 
 const database = new Sequelize('productapp', "root", "root", {
     dialect: 'mysql',
+    port: 3307,
     models: [__dirname + '/../models/**/*.ts'],
     logging: false
 })

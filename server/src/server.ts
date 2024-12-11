@@ -28,21 +28,19 @@ const server = express();
 
 const corsOptions : CorsOptions = {
     origin: function(origin, callback){
-        if(origin === process.env.FRONTEND_URL){
+
+        const whiteList = [process.env.FRONTEND_URL, undefined, process.env.BACKEND_URL]
+        if(whiteList.includes(origin)){
             callback(null, true)
         } else {
             callback(new Error('Error de cors'), false)
         }
     }
-
 }
-
+server.use(cors(corsOptions))
 
 //Habilitar leer formulario
 server.use(express.json());
-
-server.use(cors(corsOptions))
-
 
 server.use(morgan('dev'))
 //routes
