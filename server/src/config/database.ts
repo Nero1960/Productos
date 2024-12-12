@@ -5,7 +5,7 @@ dotenv.config()
 
 const database = new Sequelize(process.env.DATABASE_URI, {
     dialect: 'mysql',
-    models: [__dirname + '/../models/**/*.ts'],
+    models: [__dirname + '/../models/**/*.{js,ts}'],
     logging: false
 })
 
